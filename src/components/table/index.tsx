@@ -83,7 +83,9 @@ export default function Table({
   return (
     <TableContainer component={Paper}>
       <MuiTable>
-        <TableHead>{head}</TableHead>
+        <TableHead>
+          <TableRow>{head}</TableRow>
+        </TableHead>
         <TableBody>{renderTableBody()}</TableBody>
       </MuiTable>
       <Grid className={paginationGrid} container justifyContent="flex-end">

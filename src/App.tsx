@@ -22,6 +22,11 @@ function App() {
               path="/"
               render={(): ReactElement => <Redirect to="/app" />}
             />
+            <Route
+              exact={true}
+              path="/auth"
+              render={(): ReactElement => <Redirect to="/auth/login" />}
+            />
             <Route exact={false} path="/auth" component={AuthLayout} />
             <Route exact={false} path="/app" component={AppLayout} />
           </Switch>

@@ -33,7 +33,7 @@ export default function Breadcrumb() {
   );
 
   return (
-    <Breadcrumbs separator=">" aria-label="breadcrumb" className={root}>
+    <Breadcrumbs aria-label="breadcrumb" className={root}>
       {filteredSplitPath.map((breadcrumb) => {
         const pageName = breadcrumb.replace(/[-]+/g, " ");
 

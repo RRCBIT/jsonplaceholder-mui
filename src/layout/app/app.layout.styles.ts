@@ -12,7 +12,7 @@ export const useStyles = makeStyles((theme: ITheme) =>
     content: {
       marginTop: "5rem",
       minHeight: "calc(100vh - 5rem)",
-      padding: theme.spacing(2)
+      padding: theme.spacing(2.5)
     }
   })
 );

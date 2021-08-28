@@ -59,7 +59,7 @@ export default function Table({
             style={{ border: "none" }}
             colSpan={colSpan}
           >
-            <CircularProgress size="small" />
+            <CircularProgress />
           </TableCell>
         </TableRow>
       );

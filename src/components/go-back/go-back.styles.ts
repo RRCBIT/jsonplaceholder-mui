@@ -4,8 +4,12 @@ import { ITheme } from "theme";
 
 export const useStyles = makeStyles((theme: ITheme) =>
   createStyles({
-    paginationGrid: {
-      padding: theme.spacing(1)
+    paper: {
+      padding: theme.spacing(2),
+      marginBottom: theme.spacing(2.5)
+    },
+    icon: {
+      marginRight: theme.spacing(1)
     }
   })
 );

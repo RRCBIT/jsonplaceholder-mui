@@ -8,6 +8,14 @@ export const getUserList = createAsyncThunk("users/getUserList", async () => {
   return response.data;
 });
 
+export const deleteUser = createAsyncThunk(
+  "users/deleteUser",
+  async (id: number) => {
+    await request.delete(`/users/${id}`);
+    return id;
+  }
+);
+
 // export const getUser = createAsyncThunk("users/getUser", async (id: number) => {
 //   const response = await getUserDetail(id);
 //   return response.data;
@@ -65,6 +73,21 @@ const usersSlice = createSlice({
       state.loading = false;
     },
     [getUserList.rejected.toString()]: (state) => {
+      state.loading = false;
+    },
+
+    // delete user
+    [deleteUser.pending.toString()]: (state) => {
+      state.loading = true;
+    },
+    [deleteUser.fulfilled.toString()]: (state, action) => {
+      const newUserList = state.userList.filter(
+        (user: IUser) => user.id !== action.payload
+      );
+      state.loading = false;
+      state.userList = [...newUserList];
+    },
+    [deleteUser.rejected.toString()]: (state) => {
       state.loading = false;
     }
 

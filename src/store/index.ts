@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import routerParamsSlice from "./router-params.slice";
+import usersSlice from "./users.slice";
 
 export const store = configureStore({
   reducer: {
-    routerParams: routerParamsSlice
+    routerParams: routerParamsSlice,
+    users: usersSlice
   }
 });
 

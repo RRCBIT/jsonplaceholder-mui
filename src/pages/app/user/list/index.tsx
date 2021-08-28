@@ -1,3 +1,5 @@
+import { List } from "modules/app/user";
+
 export default function UserList() {
-  return <h1>user list</h1>;
+  return <List />;
 }

@@ -4,9 +4,9 @@ import { PostList } from "pages/app/post";
 import { CommentList } from "pages/app/comment";
 import { AlbumList } from "pages/app/album";
 import { TodoList } from "pages/app/todo";
-
+import { Login } from "pages/auth";
 import { RouteModel } from "types";
-
+import withAuthentication from "hocs/withAuthentication";
 import {
   PATH_DASHBOARD,
   PATH_ALBUM,
@@ -16,53 +16,62 @@ import {
   PATH_USER,
   PATH_USER_CREATE,
   PATH_USER_DETAIL,
-  PATH_USER_EDIT
+  PATH_USER_EDIT,
+  PATH_LOGIN
 } from "./routes.paths";
 
 export const appRoutes: RouteModel[] = [
   {
     exact: true,
     path: PATH_DASHBOARD,
-    component: Dashboard
+    component: withAuthentication(Dashboard)
   },
   {
     exact: true,
     path: PATH_ALBUM,
-    component: AlbumList
+    component: withAuthentication(AlbumList)
   },
   {
     exact: true,
     path: PATH_COMMENT,
-    component: CommentList
+    component: withAuthentication(CommentList)
   },
   {
     exact: true,
     path: PATH_POST,
-    component: PostList
+    component: withAuthentication(PostList)
   },
   {
     exact: true,
     path: PATH_USER,
-    component: UserList
+    component: withAuthentication(UserList)
   },
   {
     exact: true,
     path: PATH_USER_CREATE,
-    component: UserCreate
+    component: withAuthentication(UserCreate)
   },
   {
     exact: true,
     path: PATH_USER_DETAIL,
-    component: UserDetail
+    component: withAuthentication(UserDetail)
   },
   {
     exact: true,
     path: PATH_USER_EDIT,
-    component: UserEdit
+    component: withAuthentication(UserEdit)
   },
   {
     exact: true,
     path: PATH_TODOS,
-    component: TodoList
+    component: withAuthentication(TodoList)
+  }
+];
+
+export const authRoutes: RouteModel[] = [
+  {
+    exact: true,
+    path: PATH_LOGIN,
+    component: Login
   }
 ];

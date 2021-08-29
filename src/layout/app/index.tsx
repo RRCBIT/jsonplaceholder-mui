@@ -1,6 +1,5 @@
 import Grid from "@material-ui/core/Grid";
 import { Switch, Route } from "react-router-dom";
-import { withRouter } from "react-router";
 
 import { Header, Sidebar, Footer } from "components";
 import { appRoutes } from "routes/routes.routes";
@@ -35,4 +34,4 @@ function AppLayout() {
   );
 }
 
-export default withRouter(AppLayout);
+export default AppLayout;

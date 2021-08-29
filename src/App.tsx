@@ -9,7 +9,7 @@ import { ThemeProvider } from "@material-ui/core";
 
 import { AppLayout, AuthLayout } from "layout";
 import { theme } from "theme";
-// import withAuthentication from "hocs/withAuthentication";
+import withAuthentication from "hocs/withAuthentication";
 
 function App() {
   return (
@@ -24,11 +24,20 @@ function App() {
             />
             <Route
               exact={true}
+              path="/app"
+              render={(): ReactElement => <Redirect to="/app/dashboard" />}
+            />
+            <Route
+              exact={true}
               path="/auth"
               render={(): ReactElement => <Redirect to="/auth/login" />}
             />
             <Route exact={false} path="/auth" component={AuthLayout} />
-            <Route exact={false} path="/app" component={AppLayout} />
+            <Route
+              exact={false}
+              path="/app"
+              component={withAuthentication(AppLayout)}
+            />
           </Switch>
         </div>
       </Router>

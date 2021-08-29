@@ -5,3 +5,7 @@ export interface RouteModel {
   path: string;
   component: ComponentType;
 }
+
+export interface IParams {
+  id: string;
+}

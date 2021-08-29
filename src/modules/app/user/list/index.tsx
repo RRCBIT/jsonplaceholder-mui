@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
 import TableCell from "@material-ui/core/TableCell";
-import Paper from "@material-ui/core/Paper";
 import TableRow from "@material-ui/core/TableRow";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
@@ -11,7 +10,7 @@ import { RootState } from "store";
 import { PATH_USER_CREATE } from "routes/routes.paths";
 import { IUser } from "types/user.model";
 import { getUserList, deleteUser } from "store/users.slice";
-import { Table, ActionButton, DeleteModal } from "components";
+import { Table, ActionButton, DeleteModal, Paper } from "components";
 import UserTableHead from "./user.table-head";
 import { useStyles } from "./user-list.styles";
 

@@ -1,11 +1,12 @@
 import Grid from "@material-ui/core/Grid";
 import { Switch, Route } from "react-router-dom";
+import { withRouter } from "react-router";
 
 import { Header, Sidebar, Footer } from "components";
 import { appRoutes } from "routes/routes.routes";
 import { useStyles } from "./app.layout.styles";
 
-export default function AppLayout() {
+function AppLayout() {
   const { right, content } = useStyles();
 
   const renderRoutes = (routes: typeof appRoutes) =>
@@ -33,3 +34,5 @@ export default function AppLayout() {
     </Grid>
   );
 }
+
+export default withRouter(AppLayout);

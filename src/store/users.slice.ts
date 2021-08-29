@@ -16,19 +16,26 @@ export const deleteUser = createAsyncThunk(
   }
 );
 
-// export const getUser = createAsyncThunk("users/getUser", async (id: number) => {
-//   const response = await getUserDetail(id);
-//   return response.data;
-// });
+export const getUserDetail = createAsyncThunk(
+  "users/getUserDetail",
+  async (id: number) => {
+    const response = await request.get(`/users/${id}`);
+    return response.data;
+  }
+);
 
 interface InitialStateType {
   userList: IUser[];
+  newUser: IUser | null;
+  modifiedUser: IUser | null;
   userDetail: IUser;
   loading: boolean;
 }
 
 const initialState: InitialStateType = {
   userList: [],
+  newUser: null,
+  modifiedUser: null,
   userDetail: {
     id: 0,
     name: "",
@@ -58,7 +65,14 @@ const initialState: InitialStateType = {
 const usersSlice = createSlice({
   name: "users",
   initialState,
-  reducers: {},
+  reducers: {
+    addNewUser: (state, action) => {
+      state.newUser = { ...action.payload };
+    },
+    addUpdatedUser: (state, action) => {
+      state.modifiedUser = { ...action.payload };
+    }
+  },
   extraReducers: {
     // get user list
     [getUserList.pending.toString()]: (state) => {
@@ -69,6 +83,19 @@ const usersSlice = createSlice({
       action: PayloadAction<IUser[]>
     ) => {
       if (!action.payload) return;
+      if (state.newUser) {
+        state.userList = [state.newUser, ...action.payload];
+        state.loading = false;
+        return;
+      }
+      if (state.modifiedUser) {
+        const updatedUserList = state.userList.filter(
+          (user: IUser) => user.id !== state.modifiedUser?.id
+        );
+        state.userList = [state.modifiedUser, ...updatedUserList];
+        state.loading = false;
+        return;
+      }
       state.userList = [...action.payload];
       state.loading = false;
     },
@@ -89,20 +116,25 @@ const usersSlice = createSlice({
     },
     [deleteUser.rejected.toString()]: (state) => {
       state.loading = false;
-    }
+    },
 
     // get user detail
-    // [getUser.pending.toString()]: (state) => {
-    //   state.loading = true;
-    // },
-    // [getUser.fulfilled.toString()]: (state, action: PayloadAction<IUser>) => {
-    //   state.loading = false;
-    //   state.userDetail = { ...action.payload };
-    // },
-    // [getUser.rejected.toString()]: (state) => {
-    //   state.loading = true;
-    // }
+    [getUserDetail.pending.toString()]: (state) => {
+      state.loading = true;
+    },
+    [getUserDetail.fulfilled.toString()]: (
+      state,
+      action: PayloadAction<IUser>
+    ) => {
+      state.loading = false;
+      state.userDetail = { ...action.payload };
+    },
+    [getUserDetail.rejected.toString()]: (state) => {
+      state.loading = true;
+    }
   }
 });
+
+export const { addNewUser, addUpdatedUser } = usersSlice.actions;
 
 export default usersSlice.reducer;

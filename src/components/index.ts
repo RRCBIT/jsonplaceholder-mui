@@ -5,3 +5,4 @@ export { default as Table } from "./table";
 export { default as ActionButton } from "./action-button";
 export { default as GoBack } from "./go-back";
 export { default as DeleteModal } from "./delete-modal";
+export { default as Paper } from "./paper";

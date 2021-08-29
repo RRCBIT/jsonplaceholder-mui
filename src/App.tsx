@@ -20,7 +20,7 @@ function App() {
             <Route
               exact={true}
               path="/"
-              render={(): ReactElement => <Redirect to="/app" />}
+              render={(): ReactElement => <Redirect to="/app/dashboard" />}
             />
             <Route
               exact={true}

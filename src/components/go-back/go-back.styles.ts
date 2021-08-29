@@ -7,9 +7,6 @@ export const useStyles = makeStyles((theme: ITheme) =>
     paper: {
       padding: theme.spacing(2),
       marginBottom: theme.spacing(2.5)
-    },
-    icon: {
-      marginRight: theme.spacing(1)
     }
   })
 );

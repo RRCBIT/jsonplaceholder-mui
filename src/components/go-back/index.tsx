@@ -11,14 +11,13 @@ interface GoBackProps {
 }
 
 export default function GoBack({ to }: GoBackProps) {
-  const { paper, icon } = useStyles();
+  const { paper } = useStyles();
 
   return (
     <Paper className={paper}>
       <Grid>
         <Link to={to}>
-          <Button color="primary">
-            <ArrowBackIcon className={icon} />
+          <Button color="primary" startIcon={<ArrowBackIcon />}>
             Go back
           </Button>
         </Link>

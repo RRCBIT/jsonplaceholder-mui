@@ -1,6 +1,6 @@
 import Dashboard from "pages/app/dashboard";
 import { UserList, UserCreate, UserDetail, UserEdit } from "pages/app/user";
-import { PostList } from "pages/app/post";
+import { PostList, PostDetail } from "pages/app/post";
 import { CommentList } from "pages/app/comment";
 import { AlbumList } from "pages/app/album";
 import { TodoList } from "pages/app/todo";
@@ -12,6 +12,7 @@ import {
   PATH_ALBUM,
   PATH_COMMENT,
   PATH_POST,
+  PATH_POST_DETAIL,
   PATH_TODOS,
   PATH_USER,
   PATH_USER_CREATE,
@@ -40,6 +41,11 @@ export const appRoutes: RouteModel[] = [
     exact: true,
     path: PATH_POST,
     component: withAuthentication(PostList)
+  },
+  {
+    exact: true,
+    path: PATH_POST_DETAIL,
+    component: withAuthentication(PostDetail)
   },
   {
     exact: true,

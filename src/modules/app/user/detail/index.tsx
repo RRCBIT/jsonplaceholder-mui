@@ -15,7 +15,9 @@ import { Paper } from "components";
 export default function UserDetail() {
   const { id } = useParams<IParams>();
   const dispatch = useDispatch();
-  const { userDetail } = useSelector((state: RootState) => state.users);
+  const { userDetail, loading } = useSelector(
+    (state: RootState) => state.users
+  );
 
   useEffect(() => {
     if (id) {
@@ -23,8 +25,9 @@ export default function UserDetail() {
       dispatch(getUserDetail(Number(id)));
     }
   }, [id, dispatch]);
+
   return (
-    <Paper heading="User Information">
+    <Paper loading={loading} heading="User Information">
       <Grid container>
         <Grid item lg={6}>
           <Grid container spacing={2}>

@@ -1,11 +1,11 @@
-import IconButton, { IconButtonProps } from "@material-ui/core/IconButton";
+import Button, { ButtonProps } from "@material-ui/core/Button";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 
 import { useStyles } from "./action-button.styles";
 
-interface ActionButtonProps extends IconButtonProps {
+interface ActionButtonProps extends ButtonProps {
   actionType: "view" | "edit" | "delete";
 }
 
@@ -22,8 +22,14 @@ export default function ActionButton({
   }
 
   return (
-    <IconButton className={actionButton} {...props}>
+    <Button
+      variant="outlined"
+      disableElevation
+      color="default"
+      className={actionButton}
+      {...props}
+    >
       {renderActionIcon()}
-    </IconButton>
+    </Button>
   );
 }

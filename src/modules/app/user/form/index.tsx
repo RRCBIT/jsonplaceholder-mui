@@ -22,7 +22,9 @@ interface UserFormProps {
 
 export default function UserForm({ mode }: UserFormProps) {
   const dispatch = useDispatch();
-  const { userDetail } = useSelector((state: RootState) => state.users);
+  const { userDetail, loading } = useSelector(
+    (state: RootState) => state.users
+  );
   const history = useHistory();
   const { id } = useParams<IParams>();
   const initialValues = useMemo(() => {
@@ -132,7 +134,7 @@ export default function UserForm({ mode }: UserFormProps) {
   });
 
   return (
-    <Paper heading="User Information">
+    <Paper loading={loading} heading="User Information">
       <form onSubmit={formik.handleSubmit}>
         <Grid container>
           <Grid container item lg={5} md={7}>

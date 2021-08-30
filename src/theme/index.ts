@@ -40,6 +40,9 @@ export const theme = createTheme({
       },
       text: {
         padding: "8px 16px"
+      },
+      outlined: {
+        padding: "8px 16px"
       }
     }
   }

@@ -5,6 +5,7 @@ import usersSlice from "./users.slice";
 import authSlice from "./auth.slices";
 import postsSlice from "./posts.slices";
 import commentsSlice from "./comments.slice";
+import albumsSlice from "./albums.slice";
 
 export const store = configureStore({
   reducer: {
@@ -12,7 +13,8 @@ export const store = configureStore({
     users: usersSlice,
     auth: authSlice,
     posts: postsSlice,
-    comments: commentsSlice
+    comments: commentsSlice,
+    albums: albumsSlice
   }
 });
 

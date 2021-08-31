@@ -1,7 +1,7 @@
 import Button, { ButtonProps } from "@material-ui/core/Button";
-import EditIcon from "@material-ui/icons/Edit";
-import DeleteIcon from "@material-ui/icons/Delete";
-import VisibilityIcon from "@material-ui/icons/Visibility";
+import EditOutlinedIcon from "@material-ui/icons/EditOutlined";
+import DeleteOutlinedIcon from "@material-ui/icons/DeleteOutlined";
+import VisibilityOutlinedIcon from "@material-ui/icons/VisibilityOutlined";
 
 import { useStyles } from "./action-button.styles";
 
@@ -16,9 +16,10 @@ export default function ActionButton({
   const { actionButton } = useStyles({ actionType });
 
   function renderActionIcon() {
-    if (actionType === "view") return <VisibilityIcon />;
-    if (actionType === "edit") return <EditIcon />;
-    if (actionType === "delete") return <DeleteIcon />;
+    if (actionType === "view")
+      return <VisibilityOutlinedIcon fontSize="small" />;
+    if (actionType === "edit") return <EditOutlinedIcon fontSize="small" />;
+    if (actionType === "delete") return <DeleteOutlinedIcon fontSize="small" />;
   }
 
   return (

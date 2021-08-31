@@ -1,8 +1,7 @@
 import Dashboard from "pages/app/dashboard";
 import { UserList, UserCreate, UserDetail, UserEdit } from "pages/app/user";
 import { PostList, PostDetail } from "pages/app/post";
-import { CommentList } from "pages/app/comment";
-import { AlbumList } from "pages/app/album";
+import { AlbumList, AlbumDetail } from "pages/app/album";
 import { TodoList } from "pages/app/todo";
 import { Login } from "pages/auth";
 import { RouteModel } from "types";
@@ -10,7 +9,7 @@ import withAuthentication from "hocs/withAuthentication";
 import {
   PATH_DASHBOARD,
   PATH_ALBUM,
-  PATH_COMMENT,
+  PATH_ALBUM_DETAIL,
   PATH_POST,
   PATH_POST_DETAIL,
   PATH_TODOS,
@@ -34,8 +33,8 @@ export const appRoutes: RouteModel[] = [
   },
   {
     exact: true,
-    path: PATH_COMMENT,
-    component: withAuthentication(CommentList)
+    path: PATH_ALBUM_DETAIL,
+    component: withAuthentication(AlbumDetail)
   },
   {
     exact: true,

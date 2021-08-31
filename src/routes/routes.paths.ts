@@ -5,7 +5,6 @@ export const PATH_USER_EDIT = "/app/user/edit/:id";
 export const PATH_USER_DETAIL = "/app/user/detail/:id";
 export const PATH_POST = "/app/post";
 export const PATH_POST_DETAIL = "/app/post/detail/:id";
-export const PATH_COMMENT = "/app/comment";
 export const PATH_ALBUM = "/app/album";
 export const PATH_ALBUM_DETAIL = "/app/album/detail/:id";
 export const PATH_TODOS = "/app/todos";

@@ -12,7 +12,7 @@ import { getParams } from "store/router-params.slice";
 import { addNewUser, addUpdatedUser, getUserDetail } from "store/users.slice";
 import { RootState } from "store";
 import { Paper } from "components";
-import { IParams } from "types/routes.model";
+import { IParams } from "types";
 import { createUser, updateUser } from "services/users.services";
 import { userSchema } from "./user-form.schema";
 

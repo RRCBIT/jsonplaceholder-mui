@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import request from "helpers/request";
-import { IComment } from "types/comment.model";
+import { IComment } from "types";
 
 export const getCommentList = createAsyncThunk(
   "comments/getCommentList",

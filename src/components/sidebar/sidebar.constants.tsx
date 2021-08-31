@@ -1,7 +1,6 @@
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import PersonIcon from "@material-ui/icons/Person";
 import InsertDriveFileIcon from "@material-ui/icons/InsertDriveFile";
-import QuestionAnswerIcon from "@material-ui/icons/QuestionAnswer";
 import PhotoAlbumIcon from "@material-ui/icons/PhotoAlbum";
 import AssignmentTurnedInIcon from "@material-ui/icons/AssignmentTurnedIn";
 
@@ -9,7 +8,6 @@ import { MenuItemModel } from "types";
 import {
   PATH_DASHBOARD,
   PATH_ALBUM,
-  PATH_COMMENT,
   PATH_POST,
   PATH_TODOS,
   PATH_USER
@@ -30,11 +28,6 @@ export const sidebarItems: MenuItemModel[] = [
     name: "Post",
     to: PATH_POST,
     icon: <InsertDriveFileIcon />
-  },
-  {
-    name: "Comment",
-    to: PATH_COMMENT,
-    icon: <QuestionAnswerIcon />
   },
   {
     name: "Album",

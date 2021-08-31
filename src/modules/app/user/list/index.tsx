@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 import { RootState } from "store";
 import { PATH_USER_CREATE } from "routes/routes.paths";
-import { IUser } from "types/user.model";
+import { IUser } from "types";
 import { getUserList, deleteUser } from "store/users.slice";
 import { Table, ActionButton, DeleteModal, Paper } from "components";
 import UserTableHead from "./user.table-head";

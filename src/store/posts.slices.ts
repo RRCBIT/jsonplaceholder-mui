@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import request from "helpers/request";
-import { IPost } from "types/post.model";
+import { IPost } from "types";
 
 export const getPostList = createAsyncThunk(
   "posts/getPostList",

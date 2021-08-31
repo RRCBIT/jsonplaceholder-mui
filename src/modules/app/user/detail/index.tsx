@@ -8,7 +8,7 @@ import MuiLink from "@material-ui/core/Link";
 
 import { getUserDetail } from "store/users.slice";
 import { getParams } from "store/router-params.slice";
-import { IParams } from "types/routes.model";
+import { IParams } from "types";
 import { RootState } from "store";
 import { Paper } from "components";
 

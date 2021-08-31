@@ -34,8 +34,21 @@ export default function DeleteModal({
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose}>Cancel</Button>
-        <Button onClick={onConfirm} color="primary" autoFocus>
+        <Button
+          variant="contained"
+          disableElevation
+          color="default"
+          onClick={onClose}
+        >
+          Cancel
+        </Button>
+        <Button
+          variant="contained"
+          disableElevation
+          onClick={onConfirm}
+          color="primary"
+          autoFocus
+        >
           Confirm
         </Button>
       </DialogActions>

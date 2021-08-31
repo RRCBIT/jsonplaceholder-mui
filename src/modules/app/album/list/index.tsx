@@ -10,13 +10,13 @@ import { Link } from "react-router-dom";
 
 import { RootState } from "store";
 import { getUserList } from "store/users.slice";
-import { getPostList, deletePost } from "store/posts.slices";
+import { getAlbumList, deleteAlbum } from "store/albums.slice";
 import { Paper, Table, ActionButton, DeleteModal } from "components";
 import { IUser, IPost } from "types";
-import { useStyles } from "./post-list.styles";
-import PostTableHead from "./post.table-head";
+import { useStyles } from "./album-list.styles";
+import AlbumTableHead from "./album.table-head";
 
-export default function PostList() {
+export default function AlbumList() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [userId, setUserId] = useState<number | null>(null);
   const [selectedPost, setSelectedPost] = useState<IPost>({
@@ -28,11 +28,13 @@ export default function PostList() {
   const { filter, form } = useStyles();
   const dispatch = useDispatch();
   const { userList } = useSelector((state: RootState) => state.users);
-  const { loading, postList } = useSelector((state: RootState) => state.posts);
+  const { albumList, loading } = useSelector(
+    (state: RootState) => state.albums
+  );
 
   const getData = useCallback(() => {
     dispatch(getUserList());
-    dispatch(getPostList(userId));
+    dispatch(getAlbumList(userId));
   }, [dispatch, userId]);
 
   useEffect(() => {
@@ -50,7 +52,7 @@ export default function PostList() {
     setIsOpen(false);
   }
   function handleClickConfirm() {
-    dispatch(deletePost(selectedPost.id));
+    dispatch(deleteAlbum(selectedPost.id));
     setIsOpen(false);
   }
   function handleClickDelete(item: IPost) {
@@ -75,7 +77,7 @@ export default function PostList() {
           </Link>
         </TableCell>
         <TableCell>
-          <Link to={`/app/post/detail/${item.id}`}>
+          <Link to={`/app/album/detail/${item.id}`}>
             <ActionButton actionType="view" />
           </Link>
           <ActionButton
@@ -120,14 +122,14 @@ export default function PostList() {
       </Paper>
       <Table
         loading={loading}
-        head={<PostTableHead />}
+        head={<AlbumTableHead />}
         colSpan={4}
-        data={postList}
+        data={albumList}
         renderRows={renderRows}
       />
       <DeleteModal
         open={isOpen}
-        item="post"
+        item="album"
         onClose={handleClickCancel}
         onConfirm={handleClickConfirm}
       />

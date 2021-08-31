@@ -1,3 +1,5 @@
+import { List } from "modules/app/album";
+
 export default function AlbumList() {
-  return <h1>album list</h1>;
+  return <List />;
 }

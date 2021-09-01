@@ -6,6 +6,7 @@ import authSlice from "./auth.slices";
 import postsSlice from "./posts.slices";
 import commentsSlice from "./comments.slice";
 import albumsSlice from "./albums.slice";
+import todosSlice from "./todos.slice";
 
 export const store = configureStore({
   reducer: {
@@ -14,7 +15,8 @@ export const store = configureStore({
     auth: authSlice,
     posts: postsSlice,
     comments: commentsSlice,
-    albums: albumsSlice
+    albums: albumsSlice,
+    todos: todosSlice
   }
 });
 

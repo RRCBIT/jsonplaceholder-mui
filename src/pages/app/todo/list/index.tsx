@@ -1,3 +1,5 @@
+import { List } from "modules/app/todo";
+
 export default function TodoList() {
-  return <h1>todo list</h1>;
+  return <List />;
 }

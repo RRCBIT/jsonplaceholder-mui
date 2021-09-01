@@ -5,9 +5,9 @@ import { ITodo } from "types";
 
 export const getTodoList = createAsyncThunk(
   "todos/getTodoList",
-  async (params: { userId?: number | null; status?: boolean }) => {
+  async (params?: { userId?: number | null; status?: boolean }) => {
     const response = await request.get("/todos", {
-      params: { userId: params.userId, completed: params.status }
+      params: { userId: params?.userId, completed: params?.status }
     });
     return response.data;
   }

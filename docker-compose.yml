@@ -1,0 +1,6 @@
+  jsonplaceholder:
+    image: clue/json-server
+    ports:
+      - "3001:80"
+    environment:
+      - JSONSERVER_PORT=80
